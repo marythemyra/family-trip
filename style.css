@@ -107,6 +107,15 @@ footer {
     margin-bottom: 30px;
 }
 
+.card ul,
+.card ol {
+    padding-left: 24px;
+}
+
+.card li {
+    padding-left: 8px;   /* Space between bullet and text */
+}
+
 .card-title {
     font-size: 1.5rem;
     margin-bottom: 15px;
