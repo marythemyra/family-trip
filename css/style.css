@@ -498,6 +498,7 @@ img {
 
 @media (max-width: 576px) {
 header .container {
+    padding: 0 5px;
     flex-direction: row;
     flex-wrap: wrap;
 }
