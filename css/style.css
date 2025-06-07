@@ -498,16 +498,10 @@ img {
 
 @media (max-width: 576px) {
 header .container {
-    padding: 0 5px;
     flex-direction: row;
-    flex-wrap: wrap;
 }
 .logo {
-    margin-bottom: 0;
-    flex-shrink: 1;
-}
-nav {
-    flex-shrink: 1;
+    margin-bottom: 15px;
 }
     
     nav {
