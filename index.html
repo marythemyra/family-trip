@@ -254,11 +254,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     let table = document.getElementById('budgetTable');
     let total = 0;
-    for (let i = 1; i < table.tBodies[0].rows.length - 1; i++) {
-        let cell = table.tBodies[0].rows[i].cells[2];
+    for (let row of table.tBodies[0].rows) {
+        let cell = row.cells[2]; 
         if (cell) {
-            let value = cell.textContent.replace('¥', '').replace(/,/g, '');
-            total += Number(value);
+            let value = cell.textContent.replace('¥', '').replace(/,/g, '').trim();
+            let num = Number(value);
+            if (!isNaN(num)) total += num;
         }
     }
     let formattedTotal = '¥' + total.toLocaleString();
