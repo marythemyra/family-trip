@@ -125,22 +125,6 @@
                         <li>12月重慶天氣較為濕冷，溫度約5-15°C，建議攜帶保暖外套及防滑鞋履</li>
                         <li>重慶地形多山，準備好應對上下坡路</li>
                     </ul>
-                    
-                    <h3 style="margin-top: 20px;">重慶特色美食：</h3>
-                    <div class="food-slider-container">
-                        <div class="food-slide">
-                            <img src="images/xiaomian.jpg" alt="重慶小麵">
-                            <p>重慶小麵</p>
-                        </div>
-                        <div class="food-slide">
-                            <img src="images/suanlafen.jpg" alt="酸辣粉">
-                            <p>酸辣粉</p>
-                        </div>
-                        <div class="food-slide">
-                            <img src="images/chaoshou.jpg" alt="紅油抄手">
-                            <p>紅油抄手</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -182,7 +166,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let total = 0;
-            const amounts = document.querySelectorAll('#budgetSummary .budget-item .budget-amount');
+            const amounts = document.querySelectorAll('.budget-summary .budget-item .budget-amount:not(#budgetTotal)');
             amounts.forEach(function(amountDiv) {
                 const num = parseFloat(amountDiv.textContent.replace('¥', '').replace(',', '').trim());
                 if (!isNaN(num)) {
