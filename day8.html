@@ -85,7 +85,7 @@
                         </div>
                         <div class="budget-total">
                             <div class="budget-name">合計（D8）</div>
-                            <div class="budget-amount">¥5490</div>
+                            <div class="budget-amount" id="budgetTotal">¥0</div>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,20 @@
             <p>&copy; 2025 重慶成都九寨溝8日7夜家族旅行 - 行程指南</p>
         </div>
     </footer>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let total = 0;
+            const amounts = document.querySelectorAll('.budget-summary .budget-item .budget-amount:not(#budgetTotal)');
+            amounts.forEach(function(amountDiv) {
+                const num = parseFloat(amountDiv.textContent.replace('¥', '').replace(',', '').trim());
+                if (!isNaN(num)) {
+                    total += num;
+                }
+            });
+            document.getElementById('budgetTotal').textContent = '¥' + total;
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
