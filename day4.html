@@ -7,37 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* 食物輪播樣式 */
-        .food-slider-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            margin-bottom: 20px;
-        }
-        
-        .food-slide {
-            flex: 0 0 auto;
-            width: 250px;
-            margin-right: 15px;
-            scroll-snap-align: start;
-        }
-        
-        .food-slide img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        
-        .food-slide p {
-            text-align: center;
-            margin-top: 8px;
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
     <!-- 頁頭 -->
@@ -91,6 +60,32 @@
                     <!-- 午餐 -->
                     <div class="itinerary-item">
                         <h3>午餐：樂山</h3>
+                        <div class="food-slider-container">
+                            <div class="food-slide">
+                                <img src="images/xiaofandian.jpg" alt="家常小菜">
+                                <p>家常小菜（小飯店）</p>
+                            </div>
+                            <div class="food-slide">
+                                <img src="images/tianpiya.jpg" alt="甜皮鴨">
+                                <p>甜皮鴨</p>
+                            </div>
+                            <div class="food-slide">
+                                <img src="images/qiaojiaoniurou.jpg" alt="蹺腳牛肉">
+                                <p>蹺腳牛肉</p>
+                            </div>
+                            <div class="food-slide">
+                                <img src="images/shansi.JPG" alt="臨江鎮鱔絲">
+                                <p>臨江鎮鱔絲</p>
+                            </div>
+                            <div class="food-slide">
+                                <img src="images/fengzhua.png" alt="鳳爪">
+                                <p>九妹鳳爪</p>
+                            </div>
+                            <div class="food-slide">
+                                <img src="images/hongliangao.jpg" alt="紅糖涼糕">
+                                <p>紅糖涼糕</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- 船遊大佛 -->
@@ -120,23 +115,6 @@
             <!-- 實用提示 -->
             <div class="card">
                 <h2 class="card-title"><i class="fas fa-lightbulb"></i> 實用提示</h2>
-                <div class="section">
-                    <h3>樂山特色美食：</h3>
-                    <div class="food-slider-container">
-                        <div class="food-slide">
-                            <img src="images/fengzhua.png" alt="鳳爪">
-                            <p>鳳爪</p>
-                        </div>
-                        <div class="food-slide">
-                            <img src="images/tianpiya.jpg" alt="甜皮鴨">
-                            <p>甜皮鴨</p>
-                        </div>
-                        <div class="food-slide">
-                            <img src="images/hongliangao.jpg" alt="紅糖涼糕">
-                            <p>紅糖涼糕</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- 預算總結 -->
@@ -154,7 +132,7 @@
                         </div>
                         <div class="budget-total">
                             <div class="budget-name">合計（D4）</div>
-                            <div class="budget-amount">¥920</div>
+                            <div class="budget-amount" id="budgetTotal">¥0</div>
                         </div>
                     </div>
                 </div>
@@ -174,7 +152,20 @@
             <p>&copy; 2025 重慶成都九寨溝8日7夜家族旅行 - 行程指南</p>
         </div>
     </footer>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let total = 0;
+            const amounts = document.querySelectorAll('.budget-summary .budget-item .budget-amount:not(#budgetTotal)');
+            amounts.forEach(function(amountDiv) {
+                const num = parseFloat(amountDiv.textContent.replace('¥', '').replace(',', '').trim());
+                if (!isNaN(num)) {
+                    total += num;
+                }
+            });
+            document.getElementById('budgetTotal').textContent = '¥' + total;
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
