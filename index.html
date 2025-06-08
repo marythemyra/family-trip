@@ -183,12 +183,12 @@
             <div class="card">
                 <h2 class="card-title"><i class="fas fa-wallet"></i> 預算總結</h2>
                 <div class="budget-summary">
-                    <table class="budget-table">
+                    <table class="budget-table" id="budgetTable">
                         <thead>
                             <tr>
                                 <th>日期</th>
                                 <th>行程</th>
-                                <th>預算</th>
+                                <th>預算¥</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -234,7 +234,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">總計</td>
-                                <td>¥19,670</td>
+                                <td id="budgetTotal">¥19,670</td>
                             </tr>
                         </tbody>
                     </table>
@@ -250,6 +250,21 @@
         </div>
     </footer>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    let table = document.getElementById('budgetTable');
+    let total = 0;
+    for (let i = 1; i < table.tBodies[0].rows.length - 1; i++) {
+        let cell = table.tBodies[0].rows[i].cells[2];
+        if (cell) {
+            let value = cell.textContent.replace('¥', '').replace(/,/g, '');
+            total += Number(value);
+        }
+    }
+    let formattedTotal = '¥' + total.toLocaleString();
+    document.getElementById('budgetTotal').textContent = formattedTotal;
+});
+</script>
     <script src="js/script.js"></script>
 </body>
 </html>
