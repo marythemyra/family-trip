@@ -276,27 +276,21 @@ footer {
 }
 
 /* 美食輪播樣式 */
-.food-slider {
-    margin: 20px 0;
-    position: relative;
-}
-
-.food-slider-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-
-.food-slide {
-    flex: 0 0 auto;
-    width: 250px;
-    margin-right: 15px;
-    scroll-snap-align: start;
-}
+        .food-slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 20px;
+        }
+        
+        .food-slide {
+            flex: 0 0 auto;
+            width: 250px;
+            margin-right: 15px;
+            scroll-snap-align: start;
+        }
 
 .food-slide img {
     width: 100%;
@@ -315,6 +309,13 @@ footer {
     margin-top: 8px;
     font-size: 0.9rem;
 }
+
+        .food-category {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
 
 /* 導航按鈕樣式 */
 .nav-buttons {
