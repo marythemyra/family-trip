@@ -85,10 +85,13 @@
                         <div class="image-container">
                             <img src="images/xianyuzhuang.jpg" alt="大院河仙魚莊">
                         </div>
+                        <div class="image-container">
+                            <img src="images/xianyuzhuang-food.jpg" alt="大院河仙魚莊">
+                        </div>
                         <ul>
                             <li>地圖定位：<a href="https://surl.amap.com/1VFfeeBifmM" target="_blank" class="map-link">高德地圖</a></li>
-                            <li>特色：網紅庭院式魚莊，環境優美，適合拍照，用餐同時有表演</li>
-                            <li>招牌：鮮魚料理（可選不辣或微辣）、藏香豬火鍋、鮮菇素湯</li>
+                            <li>特色：網紅庭院式魚莊，環境優美，用餐同時有表演</li>
+                            <li>招牌：鮮魚料理（可選酸菜湯不辣）</li>
                             <li><strong>🔔 餐廳必須提前預約</strong>：提前透過大眾點評 / 美團預訂「水榭觀魚位」或「臨水包間」</li>
                             <li>從市區前往需約30-40分鐘車程，建議打車前往</li>
                         </ul>
@@ -155,7 +158,7 @@
                     <div class="budget-summary">
                         <div class="budget-item">
                             <div class="budget-name">車費</div>
-                            <div class="budget-amount">約¥20</div>
+                            <div class="budget-amount">¥80</div>
                         </div>
                         <div class="budget-item">
                             <div class="budget-name">熊貓基地門票</div>
@@ -163,7 +166,7 @@
                         </div>
                         <div class="budget-total">
                             <div class="budget-name">合計（D3）</div>
-                            <div class="budget-amount">¥260</div>
+                            <div class="budget-amount" id="budgetTotal">¥0</div>
                         </div>
                     </div>
                 </div>
@@ -183,7 +186,20 @@
             <p>&copy; 2025 重慶成都九寨溝8日7夜家族旅行 - 行程指南</p>
         </div>
     </footer>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let total = 0;
+            const amounts = document.querySelectorAll('.budget-summary .budget-item .budget-amount:not(#budgetTotal)');
+            amounts.forEach(function(amountDiv) {
+                const num = parseFloat(amountDiv.textContent.replace('¥', '').replace(',', '').trim());
+                if (!isNaN(num)) {
+                    total += num;
+                }
+            });
+            document.getElementById('budgetTotal').textContent = '¥' + total;
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
